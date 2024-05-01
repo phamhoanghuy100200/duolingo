@@ -8,6 +8,7 @@ import UserProgress from "./UserProgress";
 import Unit from "./Unit";
 import { lessons, units as unitsSchema } from "@/db/schema";
 import Quests from "@/components/ui/quests";
+import { cn } from "@/lib/utils";
 
 
 const LearnContent = async () => {
@@ -29,6 +30,15 @@ const LearnContent = async () => {
 
     return (
         <div className="flex flex-row-reverse gap-[48px] px-6">
+            <nav className="flex md:hidden h-[50px] w-full p-10  bg-white fixed top-0 z-50 border-b items-center">
+                <UserProgress
+                    activeCourse={userProgress.activeCourse}
+                    hearts={userProgress.hearts}
+                    diamond={userProgress.diamonds}
+                    points={userProgress.points}
+                    hasActiveSubscription={false}
+                />
+            </nav>
 
             <StickyWrapper>
                 <UserProgress
